@@ -49,3 +49,8 @@ app.include_router(chat.router,prefix="/api", tags=["Chatbot"])
 @app.get("/")
 def read_root():
     return {"message": "Stock Platform API is running"}
+
+# --- Health Check endpoint for uptime monitoring ---#
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
