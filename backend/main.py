@@ -52,5 +52,6 @@ def read_root():
 
 # --- Health Check endpoint for uptime monitoring ---#
 @app.get("/health")
+@app.head("/health")
 def health_check():
     return {"status": "ok"}
