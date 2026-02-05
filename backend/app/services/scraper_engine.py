@@ -37,7 +37,7 @@ HEADERS = {"User-Agent": "Mozilla/5.0"}
 CACHE: Dict[int, Dict[str, Any]] = {}
 PREV_CLOSE_CACHE = {} 
 LAST_REFRESH_DATE = None
-SCRAPER_RUNNING = False
+SCRAPER_RUNNING = True
 
 EXECUTOR = ThreadPoolExecutor(max_workers=MAX_WORKERS)
 
@@ -151,6 +151,8 @@ async def scraper_loop():
     loop = asyncio.get_running_loop()
     ist = ZoneInfo("Asia/Kolkata")
     print("Scraper loop started")
+
+    PREV_CLOSE_DATA = {} 
 
     while SCRAPER_RUNNING:
         now = datetime.datetime.now(ist)
